@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Low Voltage (LV) Shaft — VJ IndiLife Kharadi</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple:    #5552c8;
+  --purple-dk: #3d3a9e;
+  --purple-lt: #eeedf9;
+  --blue:      #1a8fff;
+  --pink:      #e8399a;
+  --amber:     #f5a623;
+  --green:     #22c55e;
+  --white:     #ffffff;
+  --off-white: #f4f3fc;
+  --ink:       #1a1824;
+  --ink2:      #3d3b52;
+  --muted:     #8a87a8;
+  --border:    #dddbed;
+  --sans:      'Barlow', -apple-system, sans-serif;
+  --cond:      'Barlow Condensed', 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--off-white); font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* ─── TOPBAR ──────────────────────────────────────────────── */
+.topbar {
+  background: var(--purple-dk);
+  padding: 0 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 52px;
+}
+.topbar-brand {
+  font-family: var(--cond); font-size: 18px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--white);
+  text-decoration: none; display: flex; align-items: center; gap: 10px;
+}
+.topbar-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+.topbar-back {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 6px;
+  transition: color .15s;
+}
+.topbar-back:hover { color: var(--amber); }
+.topbar-back::before { content: '←'; font-size: 14px; }
+
+/* ─── NAV ────────────────────────────────────────────────── */
+.nav-bar {
+  background: var(--purple-dk);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0 40px;
+  display: flex; align-items: center;
+  position: sticky; top: 0; z-index: 100;
+  overflow-x: auto;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-pill {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 14px 14px; border-bottom: 3px solid transparent;
+  color: rgba(255,255,255,0.45); text-decoration: none; white-space: nowrap; transition: all .15s;
+}
+.nav-pill:hover { color: var(--white); border-bottom-color: var(--amber); }
+.nav-pill.active { color: var(--white); border-bottom-color: var(--amber); }
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero {
+  background: var(--purple-dk);
+  background-image:
+    radial-gradient(ellipse at 85% 10%, rgba(26,143,255,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 5%  90%, rgba(232,57,154,0.2)  0%, transparent 50%);
+  color: var(--white);
+  padding: 64px 52px 60px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--blue), var(--amber));
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.hero-left { flex: 1; min-width: 280px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px; padding: 6px 14px; margin-bottom: 24px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.8);
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+
+.hero h1 {
+  font-family: var(--cond); font-size: clamp(44px, 7vw, 82px);
+  font-weight: 800; line-height: 0.93; letter-spacing: -1px; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 .accent { color: var(--amber); display: block; }
+.hero h1 .sub { color: rgba(255,255,255,0.3); font-size: 0.48em; font-weight: 700; letter-spacing: 2px; display: block; margin-top: 8px; }
+
+.hero-desc { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.55); max-width: 460px; margin-bottom: 32px; }
+
+.hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.hero-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+}
+.tag-blue   { background: rgba(26,143,255,0.2);  color: #93d0ff; }
+.tag-pink   { background: rgba(232,57,154,0.2);  color: #f7a8d4; }
+.tag-amber  { background: rgba(245,166,35,0.2);  color: #fcd28a; }
+.tag-white  { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+
+/* Hero diagram */
+.hero-right { flex-shrink: 0; }
+.shaft-diagram { width: 200px; position: relative; }
+.shaft-tower {
+  width: 72px; height: 320px; margin: 0 auto;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px; position: relative; overflow: hidden;
+}
+.shaft-cable {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--blue) 0%, var(--pink) 50%, var(--amber) 100%);
+  border-radius: 2px; opacity: 0.8;
+}
+.shaft-cable.c2 { left: 38%; background: linear-gradient(180deg, var(--pink), var(--purple)); opacity: 0.6; }
+.shaft-cable.c3 { left: 62%; background: linear-gradient(180deg, var(--amber), var(--blue)); opacity: 0.5; }
+.shaft-floor {
+  position: absolute; left: 0; right: 0;
+  height: 1px; background: rgba(255,255,255,0.12);
+}
+.shaft-label {
+  font-family: var(--cond); font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); text-align: center; margin-top: 10px;
+}
+
+/* ─── BODY LAYOUT ──────────────────────────────────────────── */
+.page-body { max-width: 1100px; margin: 0 auto; padding: 0 52px; }
+
+/* ─── SECTION HEADER ────────────────────────────────────────── */
+.sec { padding-top: 56px; }
+.sec-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.sec-num {
+  font-family: var(--cond); font-size: 12px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+  background: var(--purple); padding: 4px 10px; border-radius: 4px; flex-shrink: 0;
+}
+.sec-title { font-family: var(--cond); font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; color: var(--purple-dk); }
+.sec-sub   { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+
+/* ─── WHAT IS LV SHAFT — split layout ──────────────────────── */
+.what-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+@media (max-width: 700px) { .what-grid { grid-template-columns: 1fr; } }
+
+.what-text-card {
+  background: var(--purple-dk);
+  background-image: radial-gradient(ellipse at 100% 0%, rgba(26,143,255,0.2) 0%, transparent 60%);
+  border-radius: 10px; padding: 32px 28px; color: var(--white);
+}
+.what-text-card h3 {
+  font-family: var(--cond); font-size: 22px; font-weight: 800;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 14px;
+}
+.what-text-card p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.65); }
+.what-text-card p + p { margin-top: 12px; }
+
+.what-visual-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 14px;
+}
+.what-visual-card h3 {
+  font-family: var(--cond); font-size: 16px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--purple-dk);
+}
+.cable-row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.cable-row:last-child { border-bottom: none; }
+.cable-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.cable-info .label { font-size: 13px; font-weight: 700; color: var(--ink); }
+.cable-info .desc  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ─── STAT STRIP ────────────────────────────────────────────── */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px; margin-top: 20px;
+}
+.stat-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+  padding: 20px 16px; text-align: center;
+}
+.stat-val {
+  font-family: var(--cond); font-size: 36px; font-weight: 800;
+  color: var(--purple); line-height: 1; letter-spacing: -1px;
+}
+.stat-unit { font-size: 13px; font-weight: 700; color: var(--purple); }
+.stat-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+/* ─── CABLES TABLE ──────────────────────────────────────────── */
+.cables-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
+}
+.cable-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+  padding: 20px 18px; display: flex; gap: 16px; align-items: flex-start;
+  transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden;
+}
+.cable-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  opacity: 0; transition: opacity .2s;
+}
+.cable-card:hover { box-shadow: 0 6px 20px rgba(85,82,200,0.1); transform: translateY(-2px); }
+.cable-card:hover::before { opacity: 1; }
+.cable-card.internet::before  { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+.cable-card.tv::before        { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+.cable-card.phone::before     { background: linear-gradient(90deg, var(--amber), var(--blue)); }
+.cable-card.intercom::before  { background: linear-gradient(90deg, var(--green), var(--blue)); }
+.cable-card.cctv::before      { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+.cable-card.fire::before      { background: linear-gradient(90deg, #ef4444, var(--amber)); }
+
+.cc-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.cc-icon.internet { background: rgba(26,143,255,0.12); }
+.cc-icon.tv       { background: rgba(232,57,154,0.12); }
+.cc-icon.phone    { background: rgba(245,166,35,0.12); }
+.cc-icon.intercom { background: rgba(34,197,94,0.12); }
+.cc-icon.cctv     { background: rgba(85,82,200,0.12); }
+.cc-icon.fire     { background: rgba(239,68,68,0.12); }
+
+.cc-body .cc-name { font-family: var(--cond); font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; }
+.cc-body .cc-spec { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--purple); margin-bottom: 6px; }
+.cc-body .cc-desc { font-size: 12.5px; color: var(--ink2); line-height: 1.6; }
+
+/* ─── SEPARATION DIAGRAM ─────────────────────────────────────── */
+.separation-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+@media (max-width: 640px) { .separation-grid { grid-template-columns: 1fr; } }
+
+.shaft-compare {
+  border-radius: 10px; padding: 28px; position: relative; overflow: hidden;
+}
+.shaft-compare.lv {
+  background: var(--purple-lt); border: 2px solid var(--purple);
+}
+.shaft-compare.hv {
+  background: #fef3f3; border: 2px solid #fca5a5;
+}
+.compare-label {
+  font-family: var(--cond); font-size: 13px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.compare-label.lv-lbl { color: var(--purple); }
+.compare-label.hv-lbl { color: #dc2626; }
+.compare-badge {
+  font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 700;
+}
+.lv-badge { background: var(--purple); color: var(--white); }
+.hv-badge { background: #dc2626; color: var(--white); }
+
+.compare-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.compare-list li {
+  font-size: 13px; color: var(--ink2); display: flex; align-items: flex-start; gap: 10px;
+}
+.compare-list li::before { content: '→'; color: var(--purple); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.shaft-compare.hv .compare-list li::before { color: #dc2626; }
+
+.why-separate {
+  background: var(--purple-dk);
+  background-image: radial-gradient(ellipse at 90% 50%, rgba(26,143,255,0.2) 0%, transparent 60%);
+  border-radius: 10px; padding: 28px; color: var(--white); margin-top: 16px;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.why-icon { font-size: 36px; flex-shrink: 0; }
+.why-text h4 { font-family: var(--cond); font-size: 18px; font-weight: 800; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.why-text p  { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+/* ─── FLOOR BY FLOOR ─────────────────────────────────────────── */
+.floor-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.floor-table th {
+  background: var(--purple-dk); color: var(--white);
+  font-family: var(--cond); font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  padding: 14px 16px; text-align: left;
+}
+.floor-table td { padding: 12px 16px; font-size: 13px; color: var(--ink2); border-bottom: 1px solid var(--border); vertical-align: top; }
+.floor-table tr:last-child td { border-bottom: none; }
+.floor-table tr:nth-child(even) td { background: var(--off-white); }
+.floor-label { font-family: var(--cond); font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--purple-dk); }
+.floor-tag {
+  display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; margin-left: 6px; vertical-align: middle;
+}
+.ft-refuge { background: rgba(245,166,35,0.15); color: #b45309; }
+.ft-rec    { background: rgba(26,143,255,0.12); color: #1d6bbd; }
+.ft-parking{ background: rgba(85,82,200,0.12); color: var(--purple); }
+
+/* ─── MAINTENANCE ────────────────────────────────────────────── */
+.maint-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.maint-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.maint-icon { font-size: 28px; }
+.maint-title { font-family: var(--cond); font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--purple-dk); }
+.maint-desc  { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* ─── FAQ ────────────────────────────────────────────────────── */
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.faq-q {
+  padding: 18px 20px; display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; gap: 12px;
+}
+.faq-q-text { font-size: 14px; font-weight: 700; color: var(--ink); }
+.faq-toggle {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--purple-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--purple); flex-shrink: 0; transition: transform .2s;
+  font-weight: 700; line-height: 1;
+}
+.faq-a { display: none; padding: 0 20px 18px; font-size: 13px; color: var(--ink2); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 14px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--purple); color: var(--white); }
+.faq-item.open .faq-a { display: block; }
+
+/* ─── QUICK FACTS STRIP ─────────────────────────────────────── */
+.facts-strip {
+  background: var(--purple-dk);
+  background-image: radial-gradient(ellipse at 80% 50%, rgba(26,143,255,0.2) 0%, transparent 60%);
+  border-radius: 10px; padding: 32px 28px; margin-top: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px;
+}
+.fact-item { color: var(--white); }
+.fact-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.fact-val   { font-family: var(--cond); font-size: 17px; font-weight: 800; text-transform: uppercase; color: var(--white); line-height: 1.3; }
+.fact-val.amber { color: var(--amber); }
+
+/* ─── CALLOUT ─────────────────────────────────────────────────── */
+.callout {
+  border-radius: 10px; padding: 24px 24px; display: flex; align-items: flex-start; gap: 16px;
+  margin-top: 20px;
+}
+.callout.info   { background: rgba(26,143,255,0.08);  border-left: 4px solid var(--blue); }
+.callout.warn   { background: rgba(245,166,35,0.1);   border-left: 4px solid var(--amber); }
+.callout.success{ background: rgba(34,197,94,0.08);   border-left: 4px solid var(--green); }
+.callout-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.callout-body h4 { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; color: var(--ink); }
+.callout-body p  { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+.footer {
+  background: var(--purple-dk);
+  background-image: linear-gradient(135deg, var(--purple-dk) 60%, #2d2b7a);
+  color: rgba(255,255,255,0.4);
+  padding: 44px 52px; margin-top: 72px; position: relative; overflow: hidden;
+}
+.footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--blue), var(--amber));
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-brand { font-family: var(--cond); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--white); }
+.footer-brand span { display: block; font-family: var(--sans); font-size: 11px; font-weight: 400; text-transform: none; letter-spacing: 0.3px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+.footer-tagline { font-family: var(--cond); font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--amber); }
+.footer-copy { font-size: 11px; text-align: right; line-height: 1.7; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .topbar { padding: 0 20px; }
+  .hero   { padding: 44px 20px 40px; }
+  .page-body { padding: 0 20px; }
+  .footer { padding: 36px 20px; }
+  .hero-right { display: none; }
+  .nav-bar { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-brand"><span class="dot"></span>VJ IndiLife</a>
+  <a href="index.html" class="topbar-back">All Features</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="electrical.html"  class="nav-pill">Electrical</a>
+  <a href="plumbing.html"    class="nav-pill">Plumbing</a>
+  <a href="lv-shaft.html"    class="nav-pill active">LV Shaft</a>
+  <a href="fire-safety.html" class="nav-pill">Fire Safety</a>
+  <a href="doors-windows.html" class="nav-pill">Doors &amp; Windows</a>
+  <a href="flooring.html"    class="nav-pill">Flooring</a>
+  <a href="hvac.html"        class="nav-pill">HVAC / AC</a>
+  <a href="security.html"    class="nav-pill">Security</a>
+  <a href="amenities.html"   class="nav-pill">Amenities</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="dot"></span>VJ IndiLife Kharadi · Technical Details</div>
+      <h1>
+        Low Voltage<br>
+        <span class="accent">(LV) Shaft</span>
+        <span class="sub">Infrastructure · All Floors · Kharadi</span>
+      </h1>
+      <p class="hero-desc">The LV shaft is the building's dedicated communication backbone — a vertical conduit running through all 35 floors that carries every data, voice, video, and security cable in your studio. Completely separate from high-voltage electrical lines. Always organised. Always safe.</p>
+      <div class="hero-tags">
+        <span class="hero-tag tag-blue">Data & Internet</span>
+        <span class="hero-tag tag-pink">CCTV & Security</span>
+        <span class="hero-tag tag-amber">Fire Alarm</span>
+        <span class="hero-tag tag-white">Intercom</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="shaft-diagram">
+        <div class="shaft-tower">
+          <div class="shaft-cable"></div>
+          <div class="shaft-cable c2"></div>
+          <div class="shaft-cable c3"></div>
+          <div class="shaft-floor" style="top:12%"></div>
+          <div class="shaft-floor" style="top:25%"></div>
+          <div class="shaft-floor" style="top:38%"></div>
+          <div class="shaft-floor" style="top:51%"></div>
+          <div class="shaft-floor" style="top:64%"></div>
+          <div class="shaft-floor" style="top:77%"></div>
+          <div class="shaft-floor" style="top:90%"></div>
+        </div>
+        <div class="shaft-label">LV Shaft<br>35 Floors</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- QUICK FACTS -->
+  <div class="facts-strip" style="margin-top:48px;">
+    <div class="fact-item">
+      <div class="fact-label">Total Floors Served</div>
+      <div class="fact-val amber">35 Floors</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-label">Shaft Type</div>
+      <div class="fact-val">Dedicated LV Only</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-label">Separation from HV</div>
+      <div class="fact-val">100% Independent</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-label">Cable Systems Housed</div>
+      <div class="fact-val amber">6 Systems</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-label">Access</div>
+      <div class="fact-val">Authorised Technicians Only</div>
+    </div>
+  </div>
+
+  <!-- SECTION 01: WHAT IS THE LV SHAFT -->
+  <section class="sec" id="what">
+    <div class="sec-header">
+      <span class="sec-num">01</span>
+      <div>
+        <div class="sec-title">What Is the LV Shaft?</div>
+        <div class="sec-sub">Understanding the communication infrastructure backbone of VJ IndiLife Kharadi.</div>
+      </div>
+    </div>
+
+    <div class="what-grid">
+      <div class="what-text-card">
+        <h3>The Building's Nervous System.</h3>
+        <p>The Low Voltage (LV) Shaft is a purpose-built vertical enclosure that runs continuously from the basement to the 35th floor terrace of VJ IndiLife Kharadi. It is the dedicated route for all communication, data, and low-power signal cables in the building.</p>
+        <p>Think of it as the building's nervous system — carrying all the signals that keep your studio connected, secure, and smart, without interfering with the main power infrastructure.</p>
+        <p>By keeping low-voltage cables in their own enclosed, protected shaft, VJ IndiLife ensures cleaner signals, easier maintenance, and a building that stays safe and organised for decades.</p>
+      </div>
+
+      <div class="what-visual-card">
+        <h3>Cables Routed Through the LV Shaft</h3>
+        <div class="cable-row">
+          <div class="cable-dot" style="background:var(--blue)"></div>
+          <div class="cable-info">
+            <div class="label">Broadband / FTTH Internet</div>
+            <div class="desc">Fibre optic & CAT cables to each unit's data point</div>
+          </div>
+        </div>
+        <div class="cable-row">
+          <div class="cable-dot" style="background:var(--pink)"></div>
+          <div class="cable-info">
+            <div class="label">TV / Cable Feed</div>
+            <div class="desc">Coaxial antenna cable to each unit's TV socket</div>
+          </div>
+        </div>
+        <div class="cable-row">
+          <div class="cable-dot" style="background:var(--amber)"></div>
+          <div class="cable-info">
+            <div class="label">Telephone / Intercom</div>
+            <div class="desc">RJ-11 voice lines and intercom wiring</div>
+          </div>
+        </div>
+        <div class="cable-row">
+          <div class="cable-dot" style="background:var(--green)"></div>
+          <div class="cable-info">
+            <div class="label">Fire Alarm System</div>
+            <div class="desc">Detection and alarm signal cables — fully addressable</div>
+          </div>
+        </div>
+        <div class="cable-row">
+          <div class="cable-dot" style="background:var(--purple)"></div>
+          <div class="cable-info">
+            <div class="label">CCTV / Surveillance</div>
+            <div class="desc">Video signal cables from cameras on every floor</div>
+          </div>
+        </div>
+        <div class="cable-row" style="border:none">
+          <div class="cable-dot" style="background:#64748b"></div>
+          <div class="cable-info">
+            <div class="label">Access Control</div>
+            <div class="desc">Wiring for access card readers and lobby security</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-val">35<span class="stat-unit"></span></div>
+        <div class="stat-label">Floors Connected</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">6</div>
+        <div class="stat-label">Cable Systems</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">2</div>
+        <div class="stat-label">Wings — A & B</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">0</div>
+        <div class="stat-label">HV Cables Mixed In</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">24/7</div>
+        <div class="stat-label">Fire Alarm Signal Live</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: CABLE SYSTEMS IN DETAIL -->
+  <section class="sec" id="cables">
+    <div class="sec-header">
+      <span class="sec-num">02</span>
+      <div>
+        <div class="sec-title">Cable Systems — In Detail</div>
+        <div class="sec-sub">Every signal type routed through the LV shaft, and what it delivers to your studio.</div>
+      </div>
+    </div>
+
+    <div class="cables-grid">
+
+      <div class="cable-card internet">
+        <div class="cc-icon internet">📶</div>
+        <div class="cc-body">
+          <div class="cc-name">Broadband / FTTH</div>
+          <div class="cc-spec">Fibre Optic · CAT6 · FTTH Provision</div>
+          <div class="cc-desc">High-speed internet infrastructure runs through the LV shaft from the main distribution frame (MDF) in the basement to a dedicated data point in each unit. Provision for fibre-to-the-home (FTTH) is built in — future-ready from day one. Your router point on the wall connects directly to this cable run.</div>
+        </div>
+      </div>
+
+      <div class="cable-card tv">
+        <div class="cc-icon tv">📺</div>
+        <div class="cc-body">
+          <div class="cc-name">TV / Cable Antenna</div>
+          <div class="cc-spec">Coaxial · RG-6 · DTH / Cable Ready</div>
+          <div class="cc-desc">A coaxial antenna distribution system runs through the LV shaft, with a tap-off point at each floor. This connects to the TV socket inside your studio. Compatible with cable TV providers and DTH antenna feeds. The wall plate gives you a clean, no-cables-on-the-floor television setup.</div>
+        </div>
+      </div>
+
+      <div class="cable-card phone">
+        <div class="cc-icon phone">☎️</div>
+        <div class="cc-body">
+          <div class="cc-name">Telephone / Intercom</div>
+          <div class="cc-spec">RJ-11 · Voice Lines · Intercom Wiring</div>
+          <div class="cc-desc">Telephone lines and intercom wiring share the LV shaft, running from the main EPABX panel in the basement to each unit. The telephone jack in your studio wall connects here. The intercom system enables two-way communication between your unit and the building lobby or gate.</div>
+        </div>
+      </div>
+
+      <div class="cable-card intercom">
+        <div class="cc-icon intercom">🔔</div>
+        <div class="cc-body">
+          <div class="cc-name">Building Intercom & Buzzer</div>
+          <div class="cc-spec">2-Wire · Video Door Phone Compatible</div>
+          <div class="cc-desc">Dedicated intercom wiring in the LV shaft connects every unit to the building's lobby reception and gate entry. The buzzer point in your unit is fed from this run. Provision for video door phone integration is included — so you can see who is at the entrance from inside your studio.</div>
+        </div>
+      </div>
+
+      <div class="cable-card fire">
+        <div class="cc-icon fire">🔥</div>
+        <div class="cc-body">
+          <div class="cc-name">Fire Alarm System</div>
+          <div class="cc-spec">Fully Addressable · 24V DC Signal · Fire-Rated Cable</div>
+          <div class="cc-desc">Fire alarm signal cables run through the LV shaft using fire-rated, low-smoke, zero-halogen (LSZH) cables. These connect every smoke detector, heat detector, manual call point, and fire hooter to the main fire alarm control panel (FACP). The system is fully addressable — meaning the exact location of any triggered device is instantly shown at the panel.</div>
+        </div>
+      </div>
+
+      <div class="cable-card cctv">
+        <div class="cc-icon cctv">📷</div>
+        <div class="cc-body">
+          <div class="cc-name">CCTV Surveillance</div>
+          <div class="cc-spec">Coaxial / CAT6 · HD Signal · NVR/DVR Connected</div>
+          <div class="cc-desc">Video signal cables from all CCTV cameras — dome cameras in corridors and lobbies, bullet cameras at entrances and perimeter — run through the LV shaft to the central NVR/DVR recording unit in the security room. This enables 24/7 recording and monitoring of all common areas in the building.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout info" style="margin-top:16px;">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <h4>Access Card System</h4>
+        <p>Access control wiring for lobby card readers, elevator access control, and restricted floor entry also runs through the LV shaft. This enables the access-controlled lobbies and elevators that are a key security feature of VJ IndiLife Kharadi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: WHY SEPARATE -->
+  <section class="sec" id="separation">
+    <div class="sec-header">
+      <span class="sec-num">03</span>
+      <div>
+        <div class="sec-title">LV Shaft vs. Electrical Shaft</div>
+        <div class="sec-sub">Why complete separation of low-voltage and high-voltage cables is non-negotiable — and what it means for you.</div>
+      </div>
+    </div>
+
+    <div class="separation-grid">
+      <div class="shaft-compare lv">
+        <div class="compare-label lv-lbl">LV Shaft <span class="compare-badge lv-badge">Low Voltage</span></div>
+        <ul class="compare-list">
+          <li>Internet / broadband cables (CAT6, fibre optic)</li>
+          <li>Telephone and intercom wiring (RJ-11)</li>
+          <li>TV antenna / coaxial cable distribution</li>
+          <li>CCTV video signal cables</li>
+          <li>Fire alarm signal cables (LSZH)</li>
+          <li>Access control and intercom lines</li>
+          <li>Maximum voltage: 48V DC signal</li>
+          <li>Runs independently on dedicated route</li>
+        </ul>
+      </div>
+
+      <div class="shaft-compare hv">
+        <div class="compare-label hv-lbl">Electrical Shaft <span class="compare-badge hv-badge">High Voltage</span></div>
+        <ul class="compare-list">
+          <li>Main power supply cables (415V, 3-phase)</li>
+          <li>Distribution Board (DB) feeder cables</li>
+          <li>Lighting circuit risers</li>
+          <li>Power socket circuit cables</li>
+          <li>AC circuit wiring</li>
+          <li>DG backup power cables</li>
+          <li>Voltage: 230V to 415V AC</li>
+          <li>Completely separate route and enclosure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="why-separate">
+      <div class="why-icon">⚡</div>
+      <div class="why-text">
+        <h4>Why Does Separation Matter to You?</h4>
+        <p>High-voltage power cables generate electromagnetic interference (EMI) that degrades signal quality in data and communication cables. By keeping LV cables in their own dedicated shaft, VJ IndiLife ensures your internet signal is clean and fast, your CCTV footage is clear, your fire alarm system is interference-free, and your intercom works reliably. It also makes fault-finding and maintenance far simpler — a technician can work on the LV shaft without touching anything related to power. This is standard practice in all premium commercial and residential buildings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: FLOOR BY FLOOR -->
+  <section class="sec" id="floors">
+    <div class="sec-header">
+      <span class="sec-num">04</span>
+      <div>
+        <div class="sec-title">Floor-by-Floor Distribution</div>
+        <div class="sec-sub">How the LV shaft serves every floor of VJ IndiLife Kharadi — from basement to terrace.</div>
+      </div>
+    </div>
+
+    <table class="floor-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Floor Level</th>
+          <th style="width:32%">LV Shaft Function</th>
+          <th>Active Cable Systems</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="floor-label">Basement B1 & B2</span><span class="floor-tag ft-parking">Parking</span></td>
+          <td>Main Distribution Frame (MDF) hub; all LV cable runs originate here from service providers</td>
+          <td>Internet backbone, fire alarm FACP, CCTV NVR/DVR, EPABX telephone panel, access control server</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">Lower Ground + Ground</span></td>
+          <td>Entry-level distribution; lobby intercom panels, gate access control, reception CCTV</td>
+          <td>All systems — entry point for service providers, lobby cameras, gate intercom</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">1st to 6th Floor</span></td>
+          <td>Standard floor distribution — cable tap-offs to each unit's junction box</td>
+          <td>Broadband, TV, telephone, fire alarm zone, CCTV corridor cameras</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">7th Floor</span><span class="floor-tag ft-refuge">Refuge</span></td>
+          <td>Shaft continues through; refuge area gets dedicated fire alarm and intercom points</td>
+          <td>Fire alarm (priority), intercom to lobby, CCTV coverage of refuge area</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">8th to 13th Floor</span></td>
+          <td>Standard floor distribution to all SOHO and Indisuite units</td>
+          <td>Broadband, TV, telephone, fire alarm zone, CCTV corridor cameras</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">14th Floor</span><span class="floor-tag ft-rec">Recreational</span></td>
+          <td>Extended coverage for amenity spaces — Business Centre, Gym, Screening Zone</td>
+          <td>All systems + additional access control points for amenity area entry</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">15th to 35th Floor</span></td>
+          <td>Upper floor distribution — identical cable tap-offs per floor, every 5 floors has intermediate splice box</td>
+          <td>Broadband, TV, telephone, fire alarm zone, CCTV corridor and lobby cameras</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">Refuge Floors</span><span class="floor-tag ft-refuge">17, 22, 27, 32</span></td>
+          <td>Priority fire alarm and emergency intercom; shaft has inspection access panel at each refuge level</td>
+          <td>Fire alarm (priority zone), emergency intercom, CCTV — other systems pass through</td>
+        </tr>
+        <tr>
+          <td><span class="floor-label">Top Terrace Floor</span></td>
+          <td>Shaft terminates here; terrace amenities get LV coverage — CCTV, intercom, wifi point</td>
+          <td>CCTV (outdoor rated), intercom to lobby, wireless access point provision</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn" style="margin-top:16px;">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <h4>Per-Unit Access Point</h4>
+        <p>At each floor, the LV shaft has a protected junction box. From this box, individual cables run in conduit to each unit's internal wall plates — the WiFi/Router point, TV socket, telephone jack, and intercom buzzer point that you see in your studio wall. These conduit runs are concealed within the walls during construction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: MAINTENANCE -->
+  <section class="sec" id="maintenance">
+    <div class="sec-header">
+      <span class="sec-num">05</span>
+      <div>
+        <div class="sec-title">Access &amp; Maintenance</div>
+        <div class="sec-sub">How the LV shaft is kept in order — and what that means for service calls in your studio.</div>
+      </div>
+    </div>
+
+    <div class="maint-grid">
+      <div class="maint-card">
+        <div class="maint-icon">🔒</div>
+        <div class="maint-title">Locked Access Panels</div>
+        <div class="maint-desc">The LV shaft has lockable access panels on each floor — typically in the common corridor. Only authorised building management staff and licensed service technicians can open these. Residents do not have direct access to the shaft.</div>
+      </div>
+      <div class="maint-card">
+        <div class="maint-icon">🛠</div>
+        <div class="maint-title">Service Provider Visits</div>
+        <div class="maint-desc">When your internet or TV service provider needs to connect or upgrade your line, their technician works from the LV shaft junction box on your floor — not from inside your unit. This keeps service calls minimally intrusive to your space.</div>
+      </div>
+      <div class="maint-card">
+        <div class="maint-icon">🔍</div>
+        <div class="maint-title">Fault Isolation</div>
+        <div class="maint-desc">Because each cable system is clearly labelled and routed independently within the shaft, faults can be isolated to a specific floor or unit without disrupting other units on the same floor. This dramatically reduces the time taken to fix connectivity issues.</div>
+      </div>
+      <div class="maint-card">
+        <div class="maint-icon">📋</div>
+        <div class="maint-title">Society Responsibility</div>
+        <div class="maint-desc">The LV shaft and all common-area cabling within it is the responsibility of the Residents' Society after handover. The society's maintenance contract with a licensed electrical contractor typically covers periodic inspection, labelling, and testing of the LV shaft.</div>
+      </div>
+      <div class="maint-card">
+        <div class="maint-icon">⬆️</div>
+        <div class="maint-title">Future Upgradability</div>
+        <div class="maint-desc">The shaft is sized to accommodate future cable additions — for example, adding a new internet service provider, upgrading to a newer CCTV system, or installing additional access control points. New cables can be pulled through the shaft without major civil work.</div>
+      </div>
+      <div class="maint-card">
+        <div class="maint-icon">🏗</div>
+        <div class="maint-title">Construction Standard</div>
+        <div class="maint-desc">The shaft enclosure is built with fire-rated walls and doors at each floor penetration, conforming to NBC (National Building Code) requirements. Cable entries through floor slabs are sealed with approved fire-stop material to prevent fire and smoke travel through the shaft.</div>
+      </div>
+    </div>
+
+    <div class="callout success" style="margin-top:16px;">
+      <div class="callout-icon">✅</div>
+      <div class="callout-body">
+        <h4>What This Means for Your Studio</h4>
+        <p>As a unit owner or occupant, the LV shaft is completely transparent to you in daily use. Your WiFi point, TV socket, telephone jack, intercom buzzer, and CCTV coverage all work because of this shaft — reliably, without interference, and with the ability to be serviced or upgraded without disturbing your interior walls.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: FAQ -->
+  <section class="sec" id="faq" style="padding-bottom: 0;">
+    <div class="sec-header">
+      <span class="sec-num">06</span>
+      <div>
+        <div class="sec-title">Frequently Asked Questions</div>
+        <div class="sec-sub">Common questions about the LV shaft from VJ IndiLife buyers and owners.</div>
+      </div>
+    </div>
+
+    <div class="faq-list" style="margin-bottom: 56px;">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I install my own internet cable through the LV shaft?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">No — residents cannot directly access the LV shaft. If you wish to install a new internet service provider or upgrade your connection, your ISP's technician will coordinate with building management to access the shaft junction box on your floor. The internal conduit from the shaft to your unit's wall plate is fixed during construction.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What broadband providers can serve my unit via the LV shaft?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Any licensed internet service provider (ISP) approved by building management can pull their fibre or cable through the LV shaft to serve your unit. Common providers in Kharadi include Airtel Fibre, Jio Fibre, ACT Fibernet, and others. The shaft infrastructure is provider-agnostic — the building does not lock you into one ISP.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is the fire alarm in the LV shaft the same system as my unit's sprinkler?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">No — these are two separate systems. The fire alarm signal cables in the LV shaft carry detection signals (from smoke detectors, heat detectors, and manual call points) to the Fire Alarm Control Panel (FACP). The sprinkler system runs via dedicated water pipes in the building's fire-fighting shaft — it is hydraulic, not electrical. The alarm system triggers the hooter; the sprinkler system activates independently based on heat.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Will CCTV cameras monitor the corridor outside my unit?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Yes — dome cameras are installed in the common corridors on each floor, with their video signal cables running through the LV shaft to the central CCTV recording system. These cover the lift lobby and corridor areas. No CCTV cameras are installed inside individual units — your private space has no surveillance coverage.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How does the access card entry system connect to my floor?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Each floor lobby has an access control card reader that is wired back to the central access control server in the basement via the LV shaft. When you tap your access card at the lift or lobby reader, the signal travels through the LV shaft to the server, which grants or denies entry. The access card data and logs are managed at the building level by the society.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What is FTTH provision and do I need anything extra to use it?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">FTTH stands for Fibre-to-the-Home. The LV shaft includes a fibre optic conduit run from the basement MDF to each unit's data point on the wall — this is the "provision". To actually use fibre broadband, you need to subscribe to a fibre ISP (like Jio Fibre or Airtel Fibre), who will then pull their fibre cable through this pre-installed conduit route and connect it to an ONT (fibre modem) at your wall point. No civil work is needed in your unit — the route is already there.</div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      VJ IndiLife
+      <span>Multi-Utility Studios at Kharadi · Vilas Javdekar Developers</span>
+    </div>
+    <div class="footer-tagline">Think New-Age Space. Choose VJ IndiLife.</div>
+    <div class="footer-copy">LV Shaft Technical Guide<br>javdekars.com · enquiry@javdekars.com</div>
+  </div>
+</div>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
